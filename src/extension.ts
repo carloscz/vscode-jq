@@ -110,7 +110,7 @@ class JqDialogue {
             content.push(data);
         });
         jq.stdout.on('end', ()=>{
-            vscode.workspace.openTextDocument({content: content.join(), language: "json"}).then((doc) => vscode.window.showTextDocument(doc, vscode.ViewColumn.Two));
+            vscode.workspace.openTextDocument({content: content.join(""), language: "json"}).then((doc) => vscode.window.showTextDocument(doc, vscode.ViewColumn.Two));
         });
         jq.stderr.on('data', error => {
             this.showError(error.toString());
